@@ -27,12 +27,25 @@ class QRDetector(object):
         return jpeg.tobytes()
         
     def process_image(self, frame):
-        pass
+        decoded_objs = self.decode(frame)
+        frame = self.draw(frame,decoded_objs)
+        return frame
 
     def decode(self, frame):
-        pass
+        decoded_objs = pyzbar.decode(frame, scan_locations=True)
+        for obj in decoded_objs:
+            print(datetime.now().strftime('%H:%M:%S.%f'))
+            print('Type: ', obj.type)
+            print('Data: ', obj.data)
+        return decoded_objs
+
 
     def draw(self, frame, decoded_objs):
-        pass
-    
+        for decoded_obj in decoded_objs:
+            left, top, width, height = decoded_obj.rect
+            frame = cv2.rectangle(frame,
+                      (left, top),
+                      (left + width, height + top),
+                      (0, 255, 0), 2)
+        return frame    
 
