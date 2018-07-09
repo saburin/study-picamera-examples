@@ -42,9 +42,9 @@ class PedestrianDetector(object):
         for (xA, yA, xB, yB) in pick:
             cv2.rectangle(frame, (xA, yA), (xB, yB), (0, 255, 0), 2)
         
-        Human_num = len(pick)
+        Human_num = len(rects)
         print(Human_num)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(img,Human_num,(10,10), font, 4,(255,255,255),2,cv2.LINE_AA)
+        cv2.putText(img,str(Human_num),(10,10), font, 4,(255,255,255),2,cv2.LINE_AA)
 
         return frame
