@@ -63,6 +63,6 @@ class PersonDetector(object):
         print("Human")
         print(Human_num)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,str(Human_num),(15,20), font, 0.5,(255,255,255),2,cv2.LINE_AA)
+        cv2.putText(frame,str(Human_num),(15,20), font, 0.5,(0,0,0),2,cv2.LINE_AA)
 
         return frame
