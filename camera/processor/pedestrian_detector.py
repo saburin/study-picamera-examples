@@ -38,13 +38,13 @@ class PedestrianDetector(object):
 
         rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
         pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
-        
+        Human_num = 0
         for (xA, yA, xB, yB) in pick:
             cv2.rectangle(frame, (xA, yA), (xB, yB), (0, 255, 0), 2)
+            Human_num = Human_num + 1
         print("Human")
-        Human_num = len(rects)
         print(Human_num)
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,"OpenCV",(15,20), font, 2,(255,255,255),2,cv2.LINE_AA)
+        # font = cv2.FONT_HERSHEY_SIMPLEX
+        # cv2.putText(frame,"OpenCV",(15,20), font, 2,(255,255,255),2,cv2.LINE_AA)
 
         return frame
