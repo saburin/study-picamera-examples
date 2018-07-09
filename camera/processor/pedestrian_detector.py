@@ -45,6 +45,6 @@ class PedestrianDetector(object):
         Human_num = len(rects)
         print(Human_num)
         font = cv2.FONT_HERSHEY_SIMPLEX
-        cv2.putText(frame,"OpenCV",(10,10), font, 2,(255,255,255),2,cv2.LINE_AA)
+        cv2.putText(frame,"OpenCV",(15,20), font, 2,(255,255,255),2,cv2.LINE_AA)
 
         return frame
