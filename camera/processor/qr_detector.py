@@ -27,6 +27,7 @@ class QRDetector(object):
         return jpeg.tobytes()
         
     def process_image(self, frame):
+        print("QR!")
         decoded_objs = self.decode(frame)
         frame = self.draw(frame,decoded_objs)
         return frame
